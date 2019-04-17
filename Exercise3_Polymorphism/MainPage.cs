@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Exercise3_Polymorphism {
-    public partial class Form1 : Form {
-        public Form1() {
+    public partial class MainPage : Form {
+        public MainPage() {
             InitializeComponent();
         }
     }
