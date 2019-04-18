@@ -8,19 +8,21 @@ namespace Exercise3_Polymorphism {
     class SimpleQuiz {
         private List<IQuestion> myQuestions;
         private int currentQuestion;
+        private int correctAnswers;
         private string TRUE_FALSE = "True or False";
         private string BLANK = "__________";
         public SimpleQuiz() {
             myQuestions = new List<IQuestion>();
             myQuestions.Add(new ShortAnswerQuestion("What is the capital of the Philippines?", "MANILA"));
             myQuestions.Add( new ShortAnswerQuestion( "What is the name of our national hero?", "JOSE RIZAL" ));
-            myQuestions.Add( new ShortAnswerQuestion( "What is the name of the part of the human skeleton which protects our brain?The skull?", "SKULL" ) );
+            myQuestions.Add( new ShortAnswerQuestion( "What is the name of the part of the human skeleton which protects our brain?", "SKULL" ) );
             myQuestions.Add( new FillInBlankQuestion( String.Format( "Rain rain go {0}", BLANK ), "AWAY" ) );
             myQuestions.Add( new FillInBlankQuestion( String.Format( "{0} is the power house of the cell", BLANK ), "MITOCHONDRIA" ) );
             myQuestions.Add( new TrueFalseQuestion( String.Format( "The fastest land animal in the world is the zebra. {0}", TRUE_FALSE), "FALSE") );
             myQuestions.Add( new TrueFalseQuestion( String.Format( "Your ears are important when it comes to staying balanced. {0}", TRUE_FALSE ), "TRUE" ) );
             myQuestions = shuffileList( myQuestions );
             currentQuestion = 0;
+            correctAnswers = 0;
         }
         public string getCurrentAnswer() {
             return myQuestions.ElementAt( currentQuestion ).GetAnswer();
@@ -31,9 +33,16 @@ namespace Exercise3_Polymorphism {
         }
 
         public bool checkCurrentAnswer(string answer) {
-            return myQuestions.ElementAt( currentQuestion ).CheckAnswer( answer );
+            bool result = myQuestions.ElementAt( currentQuestion ).CheckAnswer( answer );
+            correctAnswers += result == true ? 1 : 0;
+            return result;
         }
-
+        public int getScore() {
+            return correctAnswers;
+        }
+        public int getQuestionSize() {
+            return myQuestions.ToArray().Length;
+        }
         public bool hasNext() {
             return currentQuestion < myQuestions.Count - 1;
         }

@@ -4,6 +4,7 @@ using System.Windows.Forms;
 namespace Exercise3_Polymorphism {
     public partial class MainPage : Form {
         SimpleQuiz simpleQuiz;
+        double passing = 0.7; //  70%
         public MainPage() {
             InitializeComponent();
             simpleQuiz = new SimpleQuiz();
@@ -17,6 +18,18 @@ namespace Exercise3_Polymorphism {
         private void endQuiz() {
             question_question.Text = "Quiz Finished";
             question_answer.Enabled = false;
+            int userScore = simpleQuiz.getScore();
+            int overall = simpleQuiz.getQuestionSize();
+
+            string passingScore = ((int)Math.Round( overall * passing )).ToString();
+            string remark = userScore >= ((int)Math.Round( overall * passing )) ? "PASSED" : "FAILED";
+            
+            String score = String.Format( "{0} / {1}",
+                userScore.ToString(),
+                overall.ToString() );
+
+            MessageBox.Show( String.Format( "SCORE: {0} \nREMARK: {1} \nPASSING: {2}", score, remark, passingScore ) );
+
         }
 
         private void performClick() {
