@@ -9,16 +9,21 @@ namespace Exercise3_Polymorphism {
         private string myAnswer;
         private string myText;
 
+        public FillInBlankQuestion( string myText, string myAnswer ) {
+            this.myAnswer = myAnswer;
+            this.myText = myText;
+        }
+
         public bool CheckAnswer( string answer ) {
-            throw new NotImplementedException();
+            return myAnswer.Equals( answer, StringComparison.OrdinalIgnoreCase );
         }
 
         public string GetAnswer() {
-            throw new NotImplementedException();
+            return myAnswer;
         }
 
         public string GetQuestion() {
-            throw new NotImplementedException();
+            return myText;
         }
     }
 }
