@@ -23,24 +23,26 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.question_question = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.question_message = new System.Windows.Forms.Label();
+            this.question_answer = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // textBox1
+            // question_question
             // 
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.textBox1.Location = new System.Drawing.Point(0, 0);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(629, 273);
-            this.textBox1.TabIndex = 0;
+            this.question_question.Dock = System.Windows.Forms.DockStyle.Top;
+            this.question_question.Location = new System.Drawing.Point(0, 0);
+            this.question_question.Multiline = true;
+            this.question_question.Name = "question_question";
+            this.question_question.Size = new System.Drawing.Size(629, 273);
+            this.question_question.TabIndex = 0;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.question_message);
+            this.groupBox1.Controls.Add(this.question_answer);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBox1.Location = new System.Drawing.Point(0, 290);
             this.groupBox1.Name = "groupBox1";
@@ -49,24 +51,33 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ANSWER";
             // 
-            // textBox2
+            // question_message
             // 
-            this.textBox2.Location = new System.Drawing.Point(8, 25);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(466, 23);
-            this.textBox2.TabIndex = 0;
+            this.question_message.AutoSize = true;
+            this.question_message.Location = new System.Drawing.Point(307, 28);
+            this.question_message.Name = "question_message";
+            this.question_message.Size = new System.Drawing.Size(0, 16);
+            this.question_message.TabIndex = 1;
             // 
-            // Form1
+            // question_answer
+            // 
+            this.question_answer.Location = new System.Drawing.Point(8, 25);
+            this.question_answer.Name = "question_answer";
+            this.question_answer.Size = new System.Drawing.Size(293, 23);
+            this.question_answer.TabIndex = 0;
+            this.question_answer.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Question_answer_KeyDown);
+            // 
+            // MainPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(629, 350);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.question_question);
             this.Font = new System.Drawing.Font("Lato", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-            this.Name = "Form1";
+            this.Name = "MainPage";
             this.ShowIcon = false;
             this.Text = "Quiz";
             this.groupBox1.ResumeLayout(false);
@@ -78,9 +89,10 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox question_question;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox question_answer;
+        private System.Windows.Forms.Label question_message;
     }
 }
 

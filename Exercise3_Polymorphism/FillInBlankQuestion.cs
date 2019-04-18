@@ -9,7 +9,7 @@ namespace Exercise3_Polymorphism {
         private string myAnswer;
         private string myText;
 
-        public bool CheckAnswer() {
+        public bool CheckAnswer( string answer ) {
             throw new NotImplementedException();
         }
 

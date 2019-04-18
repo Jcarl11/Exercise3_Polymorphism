@@ -8,6 +8,6 @@ namespace Exercise3_Polymorphism {
     interface IQuestion {
         string GetQuestion();
         string GetAnswer();
-        bool CheckAnswer();
+        bool CheckAnswer(string answer);
     }
 }
